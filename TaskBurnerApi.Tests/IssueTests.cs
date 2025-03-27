@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
-using Xunit;
+using System.Net;
 
 namespace TaskBurnerAPI.Tests
 {
@@ -29,5 +28,26 @@ namespace TaskBurnerAPI.Tests
             Assert.True(response.IsSuccessStatusCode, $"Expected a successful status code.");
             response.EnsureSuccessStatusCode();
         }
+
+        [Fact]
+        public async Task GetIssueById_ReturnsNotFoundResult()
+        {
+            // Act
+            var response = await _client.GetAsync("/issues/999");
+
+            // Assert
+            Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task CreateIssue_ReturnsCreatedResult()
+        {
+
+            // TODO: Implement the test for creating an issue
+
+
+        }
+
+
     }
 }
