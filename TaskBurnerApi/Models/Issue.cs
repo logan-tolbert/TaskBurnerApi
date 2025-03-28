@@ -8,7 +8,7 @@ public class Issue
     public required string Title { get; set; }
     public required string Body { get; set; }
 
-    // Backlog, Ready, InProgress, Complete,
+    // Backlog: 0, Ready: 1, InProgress: 2, Complete: 3
     public Status Status { get; set; } = Status.Backlog;
 
     // TODO: Future Implementation
